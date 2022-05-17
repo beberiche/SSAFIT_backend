@@ -11,4 +11,7 @@ public interface VideoDao {
 	
 	// 비디오 상세
 	Video selectOne(String id);
+	
+	// 조회수 증가
+	void viewCntUp(String id);
 }
