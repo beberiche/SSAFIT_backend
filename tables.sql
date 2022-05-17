@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS `subcomment`;
 DROP TABLE IF EXISTS `like`;
 DROP TABLE IF EXISTS `follow`;
 
+
 -- USER
 CREATE TABLE `user` (
   `id` varchar(50) NOT NULL,
@@ -41,7 +42,7 @@ CREATE TABLE `comment` (
   PRIMARY KEY (`comment_no`),
   CONSTRAINT `youtube_id_FK` FOREIGN KEY (`youtube_id`) REFERENCES `video` (`youtube_id`) ON DELETE CASCADE,
   CONSTRAINT `user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- subcomment
 CREATE TABLE `subcomment` (
@@ -53,7 +54,7 @@ CREATE TABLE `subcomment` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`sub_no`),
   CONSTRAINT `comment_no_FK` FOREIGN KEY (`comment_no`) REFERENCES `comment` (`comment_no`) ON DELETE CASCADE
-)	ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)	ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- LIKE (비디오에 대한 찜)
 CREATE TABLE `like` (
@@ -63,7 +64,7 @@ CREATE TABLE `like` (
 	PRIMARY KEY (`no`),
 	CONSTRAINT `like_user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
 	CONSTRAINT `like_youtube_id_FK` FOREIGN KEY (`youtube_id`) REFERENCES `video` (`youtube_id`) ON DELETE CASCADE
-)  ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+)  ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- FOLLOW 
 CREATE TABLE `follow`  (
@@ -73,6 +74,6 @@ CREATE TABLE `follow`  (
    	PRIMARY KEY (`no`),
 	CONSTRAINT `follow_follow_id_FK` FOREIGN KEY (`follow_id`) REFERENCES `user` (`id`) ON DELETE CASCADE,
     CONSTRAINT `follow_user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
