@@ -51,6 +51,7 @@ public class VideoController {
 	)
 	@GetMapping("/{id}")
 	public ResponseEntity<Video> videoDetail(@PathVariable String id) {
+//		videoService.videoViewCountUp(id);
 		return new ResponseEntity<Video>(videoService.selectOne(id), HttpStatus.OK);
 	}
 }

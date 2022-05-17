@@ -12,4 +12,6 @@ public interface VideoService {
 	// 비디오 상세
 	Video selectOne(String id);
 	
+//	void videoViewCountUp(String youtubeId);
+	
 }

@@ -26,6 +26,12 @@ public class VideoServiceImpl implements VideoService{
 		// TODO Auto-generated method stub
 		return videoDao.selectOne(id);
 	}
+
+//	@Override
+//	public void videoViewCountUp(String youtubeId) {
+//		// TODO Auto-generated method stub
+//		videoDao.viewCntUp(youtubeId);
+//	}
 	
 
 }
