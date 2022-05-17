@@ -3,10 +3,12 @@ package com.ssafit.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ssafit.model.dao.CommentDao;
 import com.ssafit.model.dto.Comment;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 
 	@Autowired
@@ -14,7 +16,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public void InsertComment(Comment comment) {
-		commentDao.InsertComment(comment);
+		commentDao.insertComment(comment);
 
 	}
 
@@ -43,7 +45,7 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public Comment selectOne(int CommentNo) {
-		return commentDao.seletOne(CommentNo);
+		return commentDao.selectOne(CommentNo);
 	}
 
 }

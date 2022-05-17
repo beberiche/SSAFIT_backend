@@ -2,9 +2,12 @@ package com.ssafit.model.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.ssafit.model.dao.SubCommentDao;
 import com.ssafit.model.dto.SubComment;
 
+@Service
 public class SubCommentServiceImpl implements SubCommentService{
 
 	SubCommentDao subCommentDao;
@@ -34,7 +37,7 @@ public class SubCommentServiceImpl implements SubCommentService{
 
 	@Override
 	public SubComment selectOne(int SubNo) {
-		return subCommentDao.selecOne(SubNo);
+		return subCommentDao.selectOne(SubNo);
 	}
 	
 

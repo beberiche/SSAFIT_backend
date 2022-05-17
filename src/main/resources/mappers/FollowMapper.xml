@@ -19,8 +19,8 @@
 			WHERE no = #{No}
 	</delete>
 
-	<select id="selectList" parameterType="string" resultMap="likeMap">
+	<select id="selectList" parameterType="string" resultMap="followMap">
 		SELECT * FROM follow
-			WHERE userId = #{UserId}
+			WHERE user_id = #{UserId}
 	</select>
 </mapper>

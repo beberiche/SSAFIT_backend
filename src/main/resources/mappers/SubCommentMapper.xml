@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssafit.model.dao.CommentDao">
+<mapper namespace="com.ssafit.model.dao.SubCommentDao">
 	<resultMap type="subComment" id="subCommentMap">
 		<result column="sub_no" property="SubNo"/>
 		<result column="comment_no" property="CommentNo"/>
@@ -11,10 +11,10 @@
 		<result column="Date" property="date" />
 	</resultMap>
 	
-	<insert id="insertSubComment" parameterType="comment" >
+	<insert id="insertSubComment" parameterType="subcomment" >
 		INSERT INTO subComment
 			VALUES
-			(#{0}, #{CommnentNo}, #{NickName}, #{Content}, #{UserId}, NOW())
+			(#{0}, #{CommentNo}, #{NickName}, #{Content}, #{UserId}, NOW())
 	</insert>
 
 	<delete id="deleteSubComment" parameterType="int">

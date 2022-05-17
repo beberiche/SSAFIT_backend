@@ -3,10 +3,12 @@ package com.ssafit.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ssafit.model.dao.FollowDao;
 import com.ssafit.model.dto.Follow;
 
+@Service
 public class FollowServiceImpl implements FollowService{
 
 	@Autowired
@@ -19,7 +21,7 @@ public class FollowServiceImpl implements FollowService{
 
 	@Override
 	public boolean deleteFollw(int no) {
-		if(followDao.deleteFollw(no))
+		if(followDao.deleteFollow(no))
 			return true;
 		return false;
 	}

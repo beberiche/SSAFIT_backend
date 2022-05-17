@@ -13,6 +13,6 @@ public interface UserDao {
 	boolean updateUser(User user);
 	
 	// 유저 조회
-	User selecetUser(String id);
+	User selectUser(String id);
 	
 }

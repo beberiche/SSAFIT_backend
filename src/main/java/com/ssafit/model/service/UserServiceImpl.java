@@ -1,10 +1,12 @@
 package com.ssafit.model.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ssafit.model.dao.UserDao;
 import com.ssafit.model.dto.User;
 
+@Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
@@ -31,7 +33,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User selectUser(String id) {
 		// TODO Auto-generated method stub
-		return userDao.selecetUser(id);
+		return userDao.selectUser(id);
 	}
 
 	

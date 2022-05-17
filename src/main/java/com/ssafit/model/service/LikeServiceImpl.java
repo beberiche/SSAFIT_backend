@@ -3,10 +3,12 @@ package com.ssafit.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ssafit.model.dao.LikeDao;
 import com.ssafit.model.dto.Like;
 
+@Service
 public class LikeServiceImpl implements LikeService {
 
 	@Autowired
