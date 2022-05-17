@@ -33,12 +33,14 @@ public class LoginController {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		try {
 			User u = userDao.selectUser(user.getId());
-			if(user.getId() != null || user.getId().length()>0) {
+			System.out.println(u );
+			System.out.println(user);
+			if (u != null && u.getId().equals(user.getId())  && u.getPassword().equals(user.getPassword()) ) {
 				result.put("auth-token", jwtUtill.createToken("userId", user.getId()));
-				result.put("message",SUCCESS);
+				result.put("message", SUCCESS);
 				status = HttpStatus.ACCEPTED;
-			}else {
-				result.put("message",FAIL);
+			} else {
+				result.put("message", FAIL);
 				status = HttpStatus.ACCEPTED;
 			}
 		} catch (Exception e) {
