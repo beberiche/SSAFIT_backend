@@ -16,6 +16,10 @@ import com.ssafit.model.dto.Video;
 import com.ssafit.model.service.CommentService;
 import com.ssafit.model.service.VideoService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(tags = "비디오 관련")
 @RestController
 @RequestMapping("/api/video")
 public class VideoController {
@@ -26,6 +30,10 @@ public class VideoController {
 	CommentService commentService;
 
 	// 비디오 조회
+	@ApiOperation(
+			value = "비디오 조회",
+			notes = "전체 비디오 목록을 보여줍니다."
+	)
 	@GetMapping("/list")
 	public ResponseEntity<List<Video>> videoList(@RequestParam(defaultValue = "") String mode,
 			@RequestParam(defaultValue = "") String key) {
@@ -37,9 +45,12 @@ public class VideoController {
 	}
 
 	// 비디오 상세
+	@ApiOperation(
+			value = "비디오 상세",
+			notes = "id와 일치하는 비디오 상세정보를 보여줍니다."
+	)
 	@GetMapping("/{id}")
 	public ResponseEntity<Video> videoDetail(@PathVariable String id) {
-		
 		return new ResponseEntity<Video>(videoService.selectOne(id), HttpStatus.OK);
 	}
 }

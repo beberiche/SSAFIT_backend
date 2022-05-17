@@ -39,7 +39,6 @@ public class CommentServiceImpl implements CommentService {
 
 	@Override
 	public List<Comment> selectList(String YotubeId) {
-		
 		return commentDao.selectList(YotubeId);
 	}
 

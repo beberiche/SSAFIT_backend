@@ -8,13 +8,13 @@
 		<result column="nick_name" property="NickName"/>
 		<result column="content" property="Content"/>
 		<result column="user_id" property="UserId" />
-		<result column="Date" property="date" />
+		<result column="date" property="Date" />
 	</resultMap>
 	
 	<insert id="insertComment" parameterType="comment" >
 		INSERT INTO comment
 			VALUES
-			(#{0}, #{YoutubeId}, #{NickName}, #{Content}, #{UserId}, NOW())
+			(0, #{YoutubeId}, #{NickName}, #{Content}, #{UserId}, NOW())
 	</insert>
 	
 	<delete id="deleteComment" parameterType="int">
@@ -26,7 +26,7 @@
 		UPDATE comment
 		SET 
 			nick_name = #{NickName},
-			content = #{Content},
+			content = #{Content}
 		WHERE comment_no = #{CommentNo}	
 	</update>
 	<select id="selectList" parameterType="String" resultMap="commentMap">

@@ -21,6 +21,11 @@ import com.ssafit.model.dto.Like;
 import com.ssafit.model.service.FollowService;
 import com.ssafit.model.service.LikeService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+
+@Api(tags = "찜 관련")
 @RestController
 @RequestMapping("/api/like")
 public class LikeController {
@@ -28,7 +33,11 @@ public class LikeController {
 	@Autowired
 	LikeService likeService;
 
-	@PostMapping("/insert")
+	@PostMapping("/")
+	@ApiOperation(
+			value = "찜 등록",
+			notes = "해당 비디오를 찜목록에 저장합니다."
+	)
 	public ResponseEntity<String> insertLike(@RequestBody Like like) {
 		likeService.insertLike(like);
 		;
@@ -37,12 +46,20 @@ public class LikeController {
 	}
 
 	@DeleteMapping("/{no}")
+	@ApiOperation(
+			value = "찜 삭제",
+			notes = "해당 비디오를 찜목록에서 제거합니다."
+	)
 	public ResponseEntity<String> deleteLike(@PathVariable int no) {
 		likeService.deleteLike(no);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
 	@GetMapping("/{userId}")
+	@ApiOperation(
+			value = "찜 전체조회",
+			notes = "해당 유저의 찜목록을 모두 보여줍니다."
+	)
 	public ResponseEntity<List<Like>> listLike(@PathVariable String userId) {
 		return new ResponseEntity<List<Like>>(likeService.selectList(userId), HttpStatus.OK);
 	}
