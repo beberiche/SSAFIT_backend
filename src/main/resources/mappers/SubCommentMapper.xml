@@ -26,7 +26,7 @@
 		UPDATE subcomment
 		SET 
 			nick_name = #{NickName},
-			content = #{Content},
+			content = #{Content}
 		WHERE sub_no = #{SubNo}	
 	</update>
 	

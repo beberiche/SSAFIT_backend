@@ -34,8 +34,9 @@ public class SubCommentController {
 			value = "대댓글 등록",
 			notes = "기존 댓글을 기반으로 하는 대댓글을 생성합니다."
 	)
-	public ResponseEntity<String> insertComment(@RequestBody SubComment subcomment) throws Exception {
-		subCommentService.insertSubComment(subcomment);
+
+	public ResponseEntity<String> insertComment(@RequestBody SubComment subcomment) {
+			subCommentService.insertSubComment(subcomment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 

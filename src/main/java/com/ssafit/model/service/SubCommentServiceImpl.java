@@ -15,6 +15,7 @@ public class SubCommentServiceImpl implements SubCommentService{
 	
 	@Override
 	public void insertSubComment(SubComment subComment) {
+		System.out.println(subComment.toString());
 		subCommentDao.insertSubComment(subComment);
 	}
 
