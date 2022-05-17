@@ -28,7 +28,7 @@ public class SubCommentController {
 	// 작성
 	@PostMapping("/")
 	public ResponseEntity<String> insertComment(@RequestBody SubComment subcomment) {
-		System.out.println(subcomment.toString());
+		
 		subCommentService.insertSubComment(subcomment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}

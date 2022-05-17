@@ -8,7 +8,7 @@
 		<result column="follow_id" property="FollowId"/>
 	</resultMap>
 	
-	<insert id="insertFollow" parameterType="like">
+	<insert id="insertFollow" parameterType="follow">
 		INSERT INTO follow
 			VALUES
 				(0, #{UserId}, #{FollowId})
