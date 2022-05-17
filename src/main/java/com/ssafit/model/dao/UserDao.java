@@ -10,7 +10,7 @@ public interface UserDao {
 	boolean deleteUser(String id);
 	
 	// 유저 수정
-	boolean updateUser(String id);
+	boolean updateUser(User user);
 	
 	// 유저 조회
 	User selecetUser(String id);
