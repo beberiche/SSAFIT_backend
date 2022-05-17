@@ -2,8 +2,6 @@ package com.ssafit.controller;
 
 import java.util.List;
 
-import javax.xml.ws.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssafit.model.dto.Comment;
 import com.ssafit.model.dto.SubComment;
-import com.ssafit.model.service.CommentService;
 import com.ssafit.model.service.SubCommentService;
+
 
 @RestController
 @RequestMapping("/api/subcomment")
@@ -30,8 +27,9 @@ public class SubCommentController {
 
 	// 작성
 	@PostMapping("/")
-	public ResponseEntity<String> insertComment(@RequestBody SubComment comment) {
-		subCommentService.insertSubComment(comment);
+	public ResponseEntity<String> insertComment(@RequestBody SubComment subcomment) {
+		System.out.println(subcomment.toString());
+		subCommentService.insertSubComment(subcomment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 

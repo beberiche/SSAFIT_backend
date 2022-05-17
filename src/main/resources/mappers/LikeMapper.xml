@@ -9,18 +9,18 @@
 	</resultMap>
 	
 	<insert id="insertLike" parameterType="like">
-		INSERT INTO like
+		INSERT INTO likes
 			VALUES
 				(0, #{YoutubeId}, #{UserId})
 	</insert>
 	
 	<delete id="deleteLike" parameterType="int">
-		DELETE FROM like
+		DELETE FROM likes
 			WHERE no = #{No}
 	</delete>
 
 	<select id="selectList" parameterType="string" resultMap="likeMap">
-		SELECT * FROM like
+		SELECT * FROM likes
 			WHERE userId = #{UserId}
 	</select>
 </mapper>

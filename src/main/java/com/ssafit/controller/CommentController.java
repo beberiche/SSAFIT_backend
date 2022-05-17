@@ -2,7 +2,6 @@ package com.ssafit.controller;
 
 import java.util.List;
 
-import javax.xml.ws.Response;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

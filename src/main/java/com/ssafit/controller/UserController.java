@@ -62,7 +62,7 @@ public class UserController {
 	public ResponseEntity<HashMap<String, Object>> detailUser(@PathVariable  String id) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("user", userService.selectUser(id));
-		map.put("likes", likeService.selectList(id));
+//		map.put("likes", likeService.selectList(id));
 		map.put("follows", followService.selectList(id));
 		return new ResponseEntity<HashMap<String, Object>>(map, HttpStatus.OK);
 	}
