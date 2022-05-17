@@ -10,7 +10,7 @@ public interface CommentDao {
 	// comment 삭제
 	boolean deleteComment(int CommentNo);
 	// comment 수정
-	boolean deleteComment(Comment comment);
+	boolean updateComment(Comment comment);
 	// comment 조회
 	// 전체 조회
 	List<Comment> selectList(String YotubeId);
