@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafit.model.dao.CommentDao">
+	<resultMap type="subComment" id="subCommentMap">
+		<result column="sub_no" property="SubNo"/>
+		<result column="comment_no" property="CommentNo"/>
+		<result column="nick_name" property="NickName"/>
+		<result column="content" property="Content"/>
+		<result column="user_id" property="UserId" />
+		<result column="Date" property="date" />
+	</resultMap>
+	
+	<insert id="insertSubComment" parameterType="comment" >
+		INSERT INTO subComment
+			VALUES
+			(#{0}, #{CommnentNo}, #{NickName}, #{Content}, #{UserId}, NOW())
+	</insert>
+
+	<delete id="deleteSubComment" parameterType="int">
+		DELETE FROM subComment
+			WHERE sub_no = #{SubNo}
+	</delete>
+	
+	<update id="updateComment" parameterType="comment">
+		UPDATE subComment
+		SET 
+			nick_name = #{NickName},
+			content = #{Content},
+		WHERE sub_no = #{SubNo}	
+	</update>
+	
+	<select id="selectList" parameterType="int" resultMap="subCommentMap">
+		SELECT * FROM subComment
+			WHERE comment_no = #{CommentNo}
+	</select>
+	
+	<select id="selectOne" parameterType="int" resultMap="subCommentMap">
+		SELECT * FROM subComment
+			WHERE sub_no = #{SubNo}		
+	</select>
+</mapper>

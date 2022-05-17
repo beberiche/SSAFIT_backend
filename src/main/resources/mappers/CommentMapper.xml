@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafit.model.dao.CommentDao">
+	<resultMap type="comment" id="commentMap">
+		<result column="comment_no" property="CommentNo"/>
+		<result column="youtube_id" property="YoutubeId"/>
+		<result column="nick_name" property="NickName"/>
+		<result column="content" property="Content"/>
+		<result column="user_id" property="UserId" />
+		<result column="Date" property="date" />
+	</resultMap>
+	
+	<insert id="insertComment" parameterType="comment" >
+		INSERT INTO comment
+			VALUES
+			(#{0}, #{YoutubeId}, #{NickName}, #{Content}, #{UserId}, NOW())
+	</insert>
+	
+	<delete id="deleteComment" parameterType="int">
+		DELETE FROM comment
+			WHERE comment_no = #{CommentNo}
+	</delete>
+	
+	<update id="updateComment" parameterType="comment">
+		UPDATE comment
+		SET 
+			nick_name = #{NickName},
+			content = #{Content},
+		WHERE comment_no = #{CommentNo}	
+	</update>
+	<select id="selectList" parameterType="String" resultMap="commentMap">
+		SELECT * FROM comment
+			WHERE youtube_id = #{YoutubeId}
+	</select>
+	<select id="selectOne" parameterType="int" resultMap="commentMap">
+		SELECT * FROM comment
+			WHERE comment_no = #{CommentNo}		
+	</select>
+</mapper>

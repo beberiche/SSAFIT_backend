@@ -7,5 +7,5 @@ public class User {
 	private String Id;
 	private String Password;
 	private String Name;
-	private int age;
+	private int Age;
 }

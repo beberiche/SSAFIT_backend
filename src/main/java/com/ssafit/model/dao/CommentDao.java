@@ -6,14 +6,14 @@ import com.ssafit.model.dto.Comment;
 
 public interface CommentDao {
 	// comment 작성
-	void InsertComment(Comment comment);
+	void insertComment(Comment comment);
 	// comment 삭제
 	boolean deleteComment(int CommentNo);
 	// comment 수정
-	boolean deleteComment(Comment comment);
+	boolean updateComment(Comment comment);
 	// comment 조회
 	// 전체 조회
-	List<Comment> selectList(String YotubeId);
+	List<Comment> selectList(String YoutubeId);
 	// 상세 보기
-	Comment seletOne(int CommentNo);
+	Comment selectOne(int CommentNo);
 }

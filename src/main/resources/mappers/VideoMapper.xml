@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafit.model.dao.VideoDao">
+	<resultMap type="video" id="videoMap">
+		<result column="youtube_id" property="YoutubeId"/>
+		<result column="channel_name" property="ChannelName"/>
+		<result column="fit_part_name" property="FitPartName"/>
+		<result column="view_cnt" property="ViewCnt"/>
+		<result column="title" property="Title" />
+	</resultMap>
+	<select id="selectList" parameterType="HashMap" resultType="video" resultMap="videoMap">
+		SELECT * FROM video	
+	</select>
+	<select id="selectOne" parameterType="String" resultType="video" resultMap="videoMap">
+		SELECT * FROM video
+		WHERE id = #{id}
+	</select>
+</mapper>
