@@ -15,5 +15,5 @@ public interface SubCommentDao {
 	// 전체 조회
 	List<SubComment> selectList(int CommentNo);
 	// 상세 조회
-	SubComment selecOne(int SubNo);
+	SubComment selectOne(int SubNo);
 }
