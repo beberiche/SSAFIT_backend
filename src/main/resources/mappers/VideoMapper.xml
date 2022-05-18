@@ -10,7 +10,20 @@
 		<result column="title" property="Title" />
 	</resultMap>
 	<select id="selectList" parameterType="HashMap" resultType="video" resultMap="videoMap">
-		SELECT * FROM video	
+		
+		SELECT youtube_id, channel_name,fit_part_name,title,view_cnt
+		FROM video
+		<if test="key == 1">
+			WHERE fit_part_name LIKE CONCAT('%', #{content}, '%')
+		</if>
+		<if test="key == 2">
+			WHERE title LIKE '%${content}%'
+		</if>
+		<if test="key == 3">
+			WHERE channel_name LIKE CONCAT('%', #{content}, '%')
+		</if>
+		
+		
 	</select>
 	<select id="selectOne" parameterType="String" resultType="video" resultMap="videoMap">
 		SELECT * FROM video

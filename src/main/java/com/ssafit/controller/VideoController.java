@@ -35,11 +35,11 @@ public class VideoController {
 			notes = "전체 비디오 목록을 보여줍니다."
 	)
 	@GetMapping("/list")
-	public ResponseEntity<List<Video>> videoList(@RequestParam(defaultValue = "") String mode,
+	public ResponseEntity<List<Video>> videoList(@RequestParam(defaultValue = "") String content,
 			@RequestParam(defaultValue = "") String key) {
 		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("mode", mode);
 		map.put("key", key);
+		map.put("content", content);
 		return new ResponseEntity<List<Video>>(videoService.selecList(map), HttpStatus.OK);
 
 	}
