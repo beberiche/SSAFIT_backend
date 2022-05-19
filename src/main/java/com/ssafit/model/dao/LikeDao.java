@@ -11,6 +11,6 @@ public interface LikeDao {
 	boolean deleteLike(int no);
 	
 	// like 조회
-	List<Like> selectList(String userId);
+	List<Like> selectListLike(String userId);
 	
 }

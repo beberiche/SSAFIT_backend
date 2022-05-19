@@ -4,11 +4,11 @@ import com.ssafit.model.dto.User;
 
 public interface UserService {
 	// 유저 생성
-	void insertUser(User user);
+	void createUser(User user);
 	// 유저 삭제
-	boolean deleteUser(String id);
+	boolean removeUser(String id);
 	// 유저 수정
-	boolean updateUser(User user);
+	boolean modifyUser(User user);
 	// 유저 조회
-	User selectUser(String id);
+	User getUser(String id);
 }

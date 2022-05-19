@@ -6,11 +6,11 @@ import com.ssafit.model.dto.Follow;
 
 public interface FollowService {
 	// Follow 등록
-		void insertFollow(Follow like);
+		void createFollow(Follow follow);
 
 		// Follow 삭제
-		boolean deleteFollw(int no);
+		boolean removeFollw(int no);
 
 		// Follow 조회
-		List<Follow> selectList(String userId);
+		List<Follow> getListFollow(String userId);
 }

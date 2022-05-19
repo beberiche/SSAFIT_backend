@@ -7,18 +7,18 @@ import com.ssafit.model.dto.SubComment;
 public interface SubCommentService {
 
 	// subcomment 작성
-	void insertSubComment(SubComment subComment);
+	void createSubComment(SubComment subComment);
 
 	// subcomment 삭제
-	boolean deleteSubComment(int SubNo);
+	boolean removeSubComment(int subNo);
 
 	// subcomment 수정
-	boolean updateSubComment(SubComment subComment);
+	boolean modifySubComment(SubComment subComment);
 
 	// subcomment 조회
 	// 전체 조회
-	List<SubComment> selectList(int CommentNo);
+	List<SubComment> getListSubComment(int commentNo);
 
 	// 상세 조회
-	SubComment selectOne(int SubNo);
+	SubComment getOneSubComment(int subNo);
 }

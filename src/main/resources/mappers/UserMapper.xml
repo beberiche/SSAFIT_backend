@@ -3,10 +3,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafit.model.dao.UserDao">
 	<resultMap type="user" id="userMap">
-		<result column="id" property="Id" />
-		<result column="password" property="Password" />
-		<result column="name" property="Name" />
-		<result column="age" property="Age" />
+		<result column="id" property="id" />
+		<result column="password" property="password" />
+		<result column="name" property="name" />
+		<result column="age" property="age" />
 	</resultMap>
 
 	<insert id="insertUser" parameterType="user">
@@ -18,21 +18,21 @@
 	<update id ="updateUser" parameterType="user">
 		UPDATE user
 		SET 
-			name = #{Name},
-			age = #{Age},
-			password = #{Password}
-		WHERE id = #{Id}
+			name = #{name},
+			age = #{age},
+			password = #{password}
+		WHERE id = #{id}
 		
 	</update>
 	<delete id="deleteUser" parameterType="string">
 		DELETE FROM user
-		WHERE id=#{Id}
+		WHERE id=#{id}
 	</delete>
 
 	<select id="selectUser" parameterType="string"
 		resultMap="userMap">
 		SELECT *
-		FROM user WHERE id=#{Id};
+		FROM user WHERE id=#{id};
 	</select>
 
 </mapper>

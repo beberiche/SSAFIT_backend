@@ -4,9 +4,9 @@ import lombok.Data;
 
 @Data
 public class Video {
-	private String YoutubeId;
-	private String ChannelName;
-	private String FitPartName;
-	private String Title;
-	private int ViewCnt;
+	private String youtubeId;
+	private String channelName;
+	private String fitPartName;
+	private String title;
+	private int viewCnt;
 }

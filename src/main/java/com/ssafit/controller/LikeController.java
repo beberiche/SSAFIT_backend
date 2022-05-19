@@ -2,9 +2,6 @@ package com.ssafit.controller;
 
 import java.util.List;
 
-import javax.xml.ws.Response;
-
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssafit.model.dto.Follow;
 import com.ssafit.model.dto.Like;
-import com.ssafit.model.service.FollowService;
 import com.ssafit.model.service.LikeService;
 
 import io.swagger.annotations.Api;
@@ -39,8 +34,7 @@ public class LikeController {
 			notes = "해당 비디오를 찜목록에 저장합니다."
 	)
 	public ResponseEntity<String> insertLike(@RequestBody Like like) {
-		likeService.insertLike(like);
-		;
+		likeService.createLike(like);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
 	}
@@ -51,7 +45,7 @@ public class LikeController {
 			notes = "해당 비디오를 찜목록에서 제거합니다."
 	)
 	public ResponseEntity<String> deleteLike(@PathVariable int no) {
-		likeService.deleteLike(no);
+		likeService.removeLike(no);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -61,6 +55,6 @@ public class LikeController {
 			notes = "해당 유저의 찜목록을 모두 보여줍니다."
 	)
 	public ResponseEntity<List<Like>> listLike(@PathVariable String userId) {
-		return new ResponseEntity<List<Like>>(likeService.selectList(userId), HttpStatus.OK);
+		return new ResponseEntity<List<Like>>(likeService.getListLike(userId), HttpStatus.OK);
 	}
 }

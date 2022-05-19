@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class Follow {
-	private int No;
-	private String UserId;
-	private String FollowId;
+	private int no;
+	private String userId;
+	private String followId;
 }

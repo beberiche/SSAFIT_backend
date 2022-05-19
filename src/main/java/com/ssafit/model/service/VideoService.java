@@ -7,11 +7,11 @@ import com.ssafit.model.dto.Video;
 
 public interface VideoService {
 	// 비디오 조회
-	List<Video> selecList(HashMap<String, String> params);
+	List<Video> getListVideo(HashMap<String, String> params);
 	
 	// 비디오 상세
-	Video selectOne(String id);
+	Video getOneVideo(String id);
 	
-//	void videoViewCountUp(String youtubeId);
+	void viewCountUpVideo(String youtubeId);
 	
 }

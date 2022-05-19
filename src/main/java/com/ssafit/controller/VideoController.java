@@ -40,7 +40,7 @@ public class VideoController {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("key", key);
 		map.put("content", content);
-		return new ResponseEntity<List<Video>>(videoService.selecList(map), HttpStatus.OK);
+		return new ResponseEntity<List<Video>>(videoService.getListVideo(map), HttpStatus.OK);
 
 	}
 
@@ -52,6 +52,6 @@ public class VideoController {
 	@GetMapping("/{id}")
 	public ResponseEntity<Video> videoDetail(@PathVariable String id) {
 //		videoService.videoViewCountUp(id);
-		return new ResponseEntity<Video>(videoService.selectOne(id), HttpStatus.OK);
+		return new ResponseEntity<Video>(videoService.getOneVideo(id), HttpStatus.OK);
 	}
 }

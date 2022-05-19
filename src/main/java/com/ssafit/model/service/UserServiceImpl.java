@@ -12,26 +12,26 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	UserDao userDao;
 	@Override
-	public void insertUser(User user) {
+	public void createUser(User user) {
 		userDao.insertUser(user);
 	}
 
 	@Override
-	public boolean deleteUser(String id) {
+	public boolean removeUser(String id) {
 		if(userDao.deleteUser(id))
 			return true;
 		return false;
 	}
 
 	@Override
-	public boolean updateUser(User user) {
+	public boolean modifyUser(User user) {
 		if(userDao.updateUser(user))
 			return true;
 		return false;
 	}
 
 	@Override
-	public User selectUser(String id) {
+	public User getUser(String id) {
 		// TODO Auto-generated method stub
 		return userDao.selectUser(id);
 	}

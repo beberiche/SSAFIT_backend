@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ssafit.model.dao.UserDao;
 import com.ssafit.model.dto.User;
+import com.ssafit.model.service.UserService;
 import com.ssafit.util.JWTUtill;
 
 @RestController
@@ -25,15 +25,14 @@ public class LoginController {
 	private JWTUtill jwtUtill;
 
 	@Autowired
-	UserDao userDao;
+	UserService userService;
 
 	@PostMapping("")
 	public ResponseEntity<Map<String, Object>> login(@RequestBody User user) {
 		HttpStatus status = null;
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		try {
-			User u = userDao.selectUser(user.getId());
-			System.out.println(u);
+			User u = userService.getUser(user.getId());
 			if (u != null && u.getId().equals(user.getId())  && u.getPassword().equals(user.getPassword()) ) {
 				result.put("auth-token", jwtUtill.createToken("userId", user.getId()));
 				result.put("message", SUCCESS);
