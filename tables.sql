@@ -53,8 +53,9 @@ CREATE TABLE `subcomment` (
   `user_id` varchar(50) NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`sub_no`),
-  CONSTRAINT `comment_no_FK` FOREIGN KEY (`comment_no`) REFERENCES `comment` (`comment_no`) ON DELETE CASCADE
-)	ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  CONSTRAINT `comment_no_FK` FOREIGN KEY (`comment_no`) REFERENCES `comment` (`comment_no`) ON DELETE CASCADE,
+  CONSTRAINT `subcommnet_user_id_FK` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE
+)ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- LIKE (비디오에 대한 찜)
 CREATE TABLE `like` (

@@ -15,11 +15,12 @@
 		(#{id}, #{password}, #{name}, #{age})
 		
 	</insert>
-	<update id = "updateUser" parameterType="user">
+	<update id ="updateUser" parameterType="user">
 		UPDATE user
 		SET 
 			name = #{Name},
-			age = #{Age}
+			age = #{Age},
+			password = #{Password}
 		WHERE id = #{Id}
 		
 	</update>
