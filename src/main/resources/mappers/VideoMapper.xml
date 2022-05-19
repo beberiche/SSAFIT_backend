@@ -29,9 +29,9 @@
 		SELECT * FROM video
 		WHERE youtube_id = #{YoutubeId}
 	</select>
-<!-- 	<update id="viewCntUp" parameterType="String">
+	<update id="viewCntUp" parameterType="String">
 		UPDATE video
 			SET view_cnt = view_cnt+1
 		WHERE youtube_id = #{YoutubeId}
-	</update> -->
+	</update>
 </mapper>

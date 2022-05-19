@@ -35,7 +35,8 @@ public class CommentController {
 			value = "댓글 등록",
 			notes = "해당 비디오에 대한 댓글을 생성합니다."
 	)
-	public ResponseEntity<String> insertComment(@RequestBody Comment comment) {
+	public ResponseEntity<String> insertComment( Comment comment) {
+		System.out.println(comment.toString());
 		commentService.InsertComment(comment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
