@@ -98,10 +98,10 @@ VALUES
     (0,13,'추운 엘사', '내일부터 다이어트다', 'galaxy', '2021-03-12 07:11:31'),
     (0,13,'화장하는 사슴', '최고의 운동영상', 'youngSubin', NOW());
 
-DELETE FROM `like`;
-ALTER TABLE `like` AUTO_INCREMENT =1;
+DELETE FROM `likes`;
+ALTER TABLE `likes` AUTO_INCREMENT =1;
 
-INSERT INTO `like`
+INSERT INTO `likes`
 VALUES
 	(0, '7TLk7pscICk',"reo"),
     (0, "2swcod5RYvU","reo"),

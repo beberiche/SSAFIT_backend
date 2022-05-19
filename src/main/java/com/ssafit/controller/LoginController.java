@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ssafit.model.dao.UserDao;
 import com.ssafit.model.dto.User;
 import com.ssafit.util.JWTUtill;
+import com.ssafit.util.SHA256;
 
 @RestController
 @RequestMapping("/api/login")
@@ -34,7 +35,7 @@ public class LoginController {
 		try {
 			User u = userDao.selectUser(user.getId());
 			System.out.println(u);
-			if (u != null && u.getId().equals(user.getId())  && u.getPassword().equals(user.getPassword()) ) {
+			if (u != null && u.getId().equals(user.getId())  && u.getPassword().equals( new SHA256().getHash(user.getPassword()))) {
 				result.put("auth-token", jwtUtill.createToken("userId", user.getId()));
 				result.put("message", SUCCESS);
 				result.put("userData", u);

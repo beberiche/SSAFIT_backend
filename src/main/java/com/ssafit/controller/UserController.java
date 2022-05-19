@@ -44,7 +44,7 @@ public class UserController {
 			value = "유저 등록",
 			notes = "새로운 유저의 정보를 데이터베이스에 등록합니다."
 	)
-	public ResponseEntity<String> insertUser(@RequestBody User user) {
+	public ResponseEntity<String> insertUser(@RequestBody User user) throws Exception {
 		userService.insertUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
 	}
@@ -66,9 +66,9 @@ public class UserController {
 	@PutMapping("/")
 	@ApiOperation(
 			value = "유저 수정",
-			notes = "유저 정보를 업데이트 합니다."
+			notes = "유저의 비밀번호를 업데이트 합니다."
 	)
-	public ResponseEntity<String> updateUser(@RequestBody User user) {
+	public ResponseEntity<String> updateUser(@RequestBody User user) throws Exception {
 		userService.updateUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
