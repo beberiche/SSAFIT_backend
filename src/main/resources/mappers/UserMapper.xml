@@ -6,7 +6,7 @@
 		<result column="id" property="Id" />
 		<result column="password" property="Password" />
 		<result column="name" property="Name" />
-		<result column="Age" property="age" />
+		<result column="age" property="Age" />
 	</resultMap>
 
 	<insert id="insertUser" parameterType="user">
@@ -15,23 +15,24 @@
 		(#{id}, #{password}, #{name}, #{age})
 		
 	</insert>
-	<update id = "updateUser" parameterType="user">
+	<update id ="updateUser" parameterType="user">
 		UPDATE user
 		SET 
 			name = #{Name},
-			age = #{Age}
+			age = #{Age},
+			password = #{Password}
 		WHERE id = #{Id}
 		
 	</update>
 	<delete id="deleteUser" parameterType="string">
 		DELETE FROM user
-		WHERE id=#{id}
+		WHERE id=#{Id}
 	</delete>
 
 	<select id="selectUser" parameterType="string"
 		resultMap="userMap">
 		SELECT *
-		FROM user WHERE id=#{id};
+		FROM user WHERE id=#{Id};
 	</select>
 
 </mapper>
