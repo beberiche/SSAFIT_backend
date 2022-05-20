@@ -14,9 +14,9 @@
 				(0, #{userId}, #{followId})
 	</insert>
 	
-	<delete id="deleteFollow" parameterType="int">
+	<delete id="deleteFollow" parameterType="java.util.HashMap">
 		DELETE FROM follow
-			WHERE no = #{no}
+			WHERE user_id = #{userId} and follow_id = #{followId}
 	</delete>
 
 	<select id="selectListFollow" parameterType="string" resultMap="followMap">

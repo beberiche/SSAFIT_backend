@@ -33,18 +33,20 @@ public class FollowController {
 			notes = "원하는 유저의 id를 팔로우에 등록시킵니다."
 	)
 	public ResponseEntity<String> insertFollow(@RequestBody Follow follow) {
+		System.out.println(follow);
 		followService.createFollow(follow);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
 	}
 
-	@DeleteMapping("/{no}")
+	@DeleteMapping("/{userid}/{followid}")
 	@ApiOperation(
 			value = "팔로우 삭제",
 			notes = "선택한 유저를 더이상 팔로우하지 않습니다."
 	)
-	public ResponseEntity<String> deleteFollow(@PathVariable int no) {
-		followService.removeFollw(no);
+	public ResponseEntity<String> deleteFollow(@PathVariable String userid, @PathVariable String followid) {
+		
+		followService.removeFollw(userid,followid);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
