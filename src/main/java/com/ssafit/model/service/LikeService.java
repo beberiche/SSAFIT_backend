@@ -9,7 +9,7 @@ public interface LikeService {
 	// like 등록
 		void createLike(Like like);
 		// like 삭제
-		boolean removeLike(int no);
+		boolean removeLike(Like like);
 		
 		// like 조회
 		List<Like> getListLike(String userId);

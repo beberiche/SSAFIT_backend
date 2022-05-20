@@ -40,13 +40,13 @@ public class LikeController {
 
 	}
 
-	@DeleteMapping("/{no}")
+	@DeleteMapping("/")
 	@ApiOperation(
 			value = "찜 삭제",
 			notes = "해당 비디오를 찜목록에서 제거합니다."
 	)
-	public ResponseEntity<String> deleteLike(@PathVariable int no) {
-		likeService.removeLike(no);
+	public ResponseEntity<String> deleteLike(@RequestBody Like like) {
+		likeService.removeLike(like);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 

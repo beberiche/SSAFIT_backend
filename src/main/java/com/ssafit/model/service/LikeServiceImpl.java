@@ -26,8 +26,8 @@ public class LikeServiceImpl implements LikeService {
 	}
 
 	@Override
-	public boolean removeLike(int no) {
-		if(likeDao.deleteLike(no))
+	public boolean removeLike(Like like) {
+		if(likeDao.deleteLike(like))
 			return true;
 		return false;
 	}

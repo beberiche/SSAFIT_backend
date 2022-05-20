@@ -14,9 +14,9 @@
 				(0, #{youtubeId}, #{userId})
 	</insert>
 	
-	<delete id="deleteLike" parameterType="int">
+	<delete id="deleteLike" parameterType="like">
 		DELETE FROM likes
-			WHERE no = #{no}
+			WHERE youtube_id = #{youtubeId} AND user_id = #{userId}
 	</delete>
 
 	<select id="selectListLike" parameterType="string" resultMap="likeMap">
