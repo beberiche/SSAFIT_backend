@@ -32,20 +32,14 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
-	@Autowired
-	LikeService likeService;
-
-	@Autowired
-	FollowService followService;
-
 	// 유저등록
 	@PostMapping("/")
 	@ApiOperation(
 			value = "유저 등록",
 			notes = "새로운 유저의 정보를 데이터베이스에 등록합니다."
 	)
-	public ResponseEntity<String> insertUser(@RequestBody User user) throws Exception {
-		userService.insertUser(user);
+	public ResponseEntity<String> insertUser(@RequestBody User user) {
+		userService.createUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.CREATED);
 	}
 
@@ -56,7 +50,7 @@ public class UserController {
 			notes = "탈퇴한 유저의 정보를 데이터베이스에 삭제합니다."
 	)
 	public ResponseEntity<String> deleteUser(@PathVariable String id) {
-		if (userService.deleteUser(id)) {
+		if (userService.removeUser(id)) {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
@@ -68,8 +62,8 @@ public class UserController {
 			value = "유저 수정",
 			notes = "유저의 비밀번호를 업데이트 합니다."
 	)
-	public ResponseEntity<String> updateUser(@RequestBody User user) throws Exception {
-		userService.updateUser(user);
+	public ResponseEntity<String> updateUser(@RequestBody User user) {
+		userService.modifyUser(user);
 		return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 	}
 
@@ -81,9 +75,7 @@ public class UserController {
 	)
 	public ResponseEntity<HashMap<String, Object>> detailUser(@PathVariable  String id) {
 		HashMap<String, Object> map = new HashMap<String, Object>();
-		map.put("user", userService.selectUser(id));
-//		map.put("likes", likeService.selectList(id));
-		map.put("follows", followService.selectList(id));
+		map.put("user", userService.getUser(id));
 		return new ResponseEntity<HashMap<String, Object>>(map, HttpStatus.OK);
 	}
 }

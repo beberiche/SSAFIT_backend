@@ -6,10 +6,10 @@ import com.ssafit.model.dto.Like;
 
 public interface LikeService {
 	// like 등록
-		void insertLike(Like like);
+		void createLike(Like like);
 		// like 삭제
-		boolean deleteLike(int no);
+		boolean removeLike(int no);
 		
 		// like 조회
-		List<Like> selectList(String userId);
+		List<Like> getListLike(String userId);
 }

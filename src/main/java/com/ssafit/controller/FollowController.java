@@ -2,9 +2,6 @@ package com.ssafit.controller;
 
 import java.util.List;
 
-import javax.xml.ws.Response;
-
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,7 +33,7 @@ public class FollowController {
 			notes = "원하는 유저의 id를 팔로우에 등록시킵니다."
 	)
 	public ResponseEntity<String> insertFollow(@RequestBody Follow follow) {
-		followService.insertFollow(follow);
+		followService.createFollow(follow);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 
 	}
@@ -47,7 +44,7 @@ public class FollowController {
 			notes = "선택한 유저를 더이상 팔로우하지 않습니다."
 	)
 	public ResponseEntity<String> deleteFollow(@PathVariable int no) {
-		followService.deleteFollw(no);
+		followService.removeFollw(no);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -57,6 +54,6 @@ public class FollowController {
 			notes = "해당 유저의 팔로우 목록을 모두 보여줍니다."
 	)
 	public ResponseEntity<List<Follow>> listFollow(@PathVariable String userId) {
-		return new ResponseEntity<List<Follow>>(followService.selectList(userId), HttpStatus.OK);
+		return new ResponseEntity<List<Follow>>(followService.getListFollow(userId), HttpStatus.OK);
 	}
 }

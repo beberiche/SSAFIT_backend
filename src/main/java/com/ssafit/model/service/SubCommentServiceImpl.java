@@ -14,33 +14,33 @@ public class SubCommentServiceImpl implements SubCommentService{
 	SubCommentDao subCommentDao;
 	
 	@Override
-	public void insertSubComment(SubComment subComment) {
+	public void createSubComment(SubComment subComment) {
 		System.out.println(subComment.toString());
 		subCommentDao.insertSubComment(subComment);
 	}
 
 	@Override
-	public boolean deleteSubComment(int SubNo) {
-		if(subCommentDao.deleteSubComment(SubNo))
+	public boolean removeSubComment(int subNo) {
+		if(subCommentDao.deleteSubComment(subNo))
 			return true;
 		return false;
 	}
 
 	@Override
-	public boolean updateSubComment(SubComment subComment) {
+	public boolean modifySubComment(SubComment subComment) {
 		if(subCommentDao.updateSubComment(subComment))
 			return true;
 		return false;
 	}
 
 	@Override
-	public List<SubComment> selectList(int CommentNo) {
-		return subCommentDao.selectList(CommentNo);
+	public List<SubComment> getListSubComment(int commentNo) {
+		return subCommentDao.selectListSubComment(commentNo);
 	}
 
 	@Override
-	public SubComment selectOne(int SubNo) {
-		return subCommentDao.selectOne(SubNo);
+	public SubComment getOneSubComment(int subNo) {
+		return subCommentDao.selectOneSubComment(subNo);
 	}
 	
 

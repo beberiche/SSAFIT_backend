@@ -3,22 +3,35 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafit.model.dao.VideoDao">
 	<resultMap type="video" id="videoMap">
-		<result column="youtube_id" property="YoutubeId"/>
-		<result column="channel_name" property="ChannelName"/>
-		<result column="fit_part_name" property="FitPartName"/>
-		<result column="view_cnt" property="ViewCnt"/>
-		<result column="title" property="Title" />
+		<result column="youtube_id" property="youtubeId"/>
+		<result column="channel_name" property="channelName"/>
+		<result column="fit_part_name" property="fitPartName"/>
+		<result column="view_cnt" property="viewCnt"/>
+		<result column="title" property="title" />
 	</resultMap>
-	<select id="selectList" parameterType="HashMap" resultType="video" resultMap="videoMap">
-		SELECT * FROM video	
+	<select id="selectListVideo" parameterType="HashMap" resultType="video" resultMap="videoMap">
+		
+		SELECT youtube_id, channel_name,fit_part_name,title,view_cnt
+		FROM video
+		<if test="key == 1">
+			WHERE fit_part_name LIKE CONCAT('%', #{content}, '%')
+		</if>
+		<if test="key == 2">
+			WHERE title LIKE '%${content}%'
+		</if>
+		<if test="key == 3">
+			WHERE channel_name LIKE CONCAT('%', #{content}, '%')
+		</if>
+		
+		
 	</select>
-	<select id="selectOne" parameterType="String" resultType="video" resultMap="videoMap">
+	<select id="selectOneVideo" parameterType="String" resultType="video" resultMap="videoMap">
 		SELECT * FROM video
-		WHERE youtube_id = #{YoutubeId}
+		WHERE youtube_id = #{youtubeId}
 	</select>
-<!-- 	<update id="viewCntUp" parameterType="String">
+	<update id="viewCntUp" parameterType="String">
 		UPDATE video
 			SET view_cnt = view_cnt+1
-		WHERE youtube_id = #{YoutubeId}
-	</update> -->
+		WHERE youtube_id = #{youtubeId}
+	</update>
 </mapper>

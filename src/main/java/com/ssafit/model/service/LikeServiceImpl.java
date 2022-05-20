@@ -14,21 +14,20 @@ public class LikeServiceImpl implements LikeService {
 	@Autowired
 	LikeDao likeDao;
 	@Override
-	public void insertLike(Like like) {
-
+	public void createLike(Like like) {
 		likeDao.insertLike(like);
 	}
 
 	@Override
-	public boolean deleteLike(int no) {
+	public boolean removeLike(int no) {
 		if(likeDao.deleteLike(no))
 			return true;
 		return false;
 	}
 
 	@Override
-	public List<Like> selectList(String userId) {
-		return likeDao.selectList(userId);
+	public List<Like> getListLike(String userId) {
+		return likeDao.selectListLike(userId);
 	}
 
 }

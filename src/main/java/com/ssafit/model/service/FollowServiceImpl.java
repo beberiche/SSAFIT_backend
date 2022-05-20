@@ -15,20 +15,20 @@ public class FollowServiceImpl implements FollowService{
 	FollowDao followDao;
 	
 	@Override
-	public void insertFollow(Follow follow) {
+	public void createFollow(Follow follow) {
 		followDao.insertFollow(follow);
 	}
 
 	@Override
-	public boolean deleteFollw(int no) {
+	public boolean removeFollw(int no) {
 		if(followDao.deleteFollow(no))
 			return true;
 		return false;
 	}
 
 	@Override
-	public List<Follow> selectList(String userId) {
-		return followDao.selectList(userId);
+	public List<Follow> getListFollow(String userId) {
+		return followDao.selectListFollow(userId);
 	}
 
 }

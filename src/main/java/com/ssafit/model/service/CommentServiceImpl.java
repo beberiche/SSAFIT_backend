@@ -15,13 +15,13 @@ public class CommentServiceImpl implements CommentService {
 	CommentDao commentDao;
 
 	@Override
-	public void InsertComment(Comment comment) {
+	public void createComment(Comment comment) {
 		commentDao.insertComment(comment);
 
 	}
 
 	@Override
-	public boolean deleteComment(int CommentNo) {
+	public boolean removeComment(int CommentNo) {
 		if (commentDao.deleteComment(CommentNo)) {
 			return true;
 		} else {
@@ -30,7 +30,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public boolean updateComment(Comment comment) {
+	public boolean modifyComment(Comment comment) {
 		if (commentDao.updateComment(comment)) {
 			return true;
 		}
@@ -38,13 +38,13 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public List<Comment> selectList(String YotubeId) {
-		return commentDao.selectList(YotubeId);
+	public List<Comment> getListComment(String yotubeId) {
+		return commentDao.selectListComment(yotubeId);
 	}
 
 	@Override
-	public Comment selectOne(int CommentNo) {
-		return commentDao.selectOne(CommentNo);
+	public Comment getOneComment(int commentNo) {
+		return commentDao.selectOneComment(commentNo);
 	}
 
 }

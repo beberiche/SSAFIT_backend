@@ -36,7 +36,7 @@ public class CommentController {
 			notes = "해당 비디오에 대한 댓글을 생성합니다."
 	)
 	public ResponseEntity<String> insertComment(@RequestBody Comment comment) {
-		commentService.InsertComment(comment);
+		commentService.createComment(comment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -47,7 +47,7 @@ public class CommentController {
 			notes = "해당 댓글에 대한 정보를 수정합니다. 닉네임과 내용만 수정이 가능합니다."
 	)
 	public ResponseEntity<String> updateComment(@RequestBody Comment comment) {
-		commentService.updateComment(comment);
+		commentService.modifyComment(comment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -58,9 +58,10 @@ public class CommentController {
 			notes = "해당 댓글을 데이터베이스에서 삭제합니다."
 	)
 	public ResponseEntity<String> deleteComment(@PathVariable int id) {
-		commentService.deleteComment(id);
+		commentService.removeComment(id);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
+	
 	// 코멘트 리스트
 	@GetMapping("/{id}")
 	@ApiOperation(
@@ -68,7 +69,7 @@ public class CommentController {
 			notes = "해당 유튜브 아이디와 일치하는 모든 댓글을 목록을 보여줍니다."
 	)
 	public ResponseEntity<List<Comment>> readList(@PathVariable String id) {
-		return new ResponseEntity<List<Comment>>(commentService.selectList(id), HttpStatus.OK);
+		return new ResponseEntity<List<Comment>>(commentService.getListComment(id), HttpStatus.OK);
 
 	}
 
@@ -79,7 +80,7 @@ public class CommentController {
 			notes = "해당 댓글 넘버와 일치하는 댓글의 정보를 모두 보여줍니다."
 	)
 	public ResponseEntity<Comment> readOne(@PathVariable int id) {
-		return new ResponseEntity<Comment>(commentService.selectOne(id), HttpStatus.OK);
+		return new ResponseEntity<Comment>(commentService.getOneComment(id), HttpStatus.OK);
 
 	}
 }

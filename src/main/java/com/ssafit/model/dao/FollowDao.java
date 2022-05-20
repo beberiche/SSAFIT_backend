@@ -12,5 +12,5 @@ public interface FollowDao {
 	boolean deleteFollow(int no);
 
 	// Follow 조회
-	List<Follow> selectList(String userId);
+	List<Follow> selectListFollow(String userId);
 }

@@ -4,10 +4,10 @@ import lombok.Data;
 
 @Data
 public class Comment {	
-	private int CommentNo;
-	private String YoutubeId;
-	private String NickName;
-	private String Content;
-	private String UserId;
-	private String Date;
+	private int commentNo;
+	private String youtubeId;
+	private String nickName;
+	private String content;
+	private String userId;
+	private String date;
 }

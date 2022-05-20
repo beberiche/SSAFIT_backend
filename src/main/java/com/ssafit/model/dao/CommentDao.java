@@ -8,12 +8,12 @@ public interface CommentDao {
 	// comment 작성
 	void insertComment(Comment comment);
 	// comment 삭제
-	boolean deleteComment(int CommentNo);
+	boolean deleteComment(int commentNo);
 	// comment 수정
 	boolean updateComment(Comment comment);
 	// comment 조회
 	// 전체 조회
-	List<Comment> selectList(String YoutubeId);
+	List<Comment> selectListComment(String youtubeId);
 	// 상세 보기
-	Comment selectOne(int CommentNo);
+	Comment selectOneComment(int commentNo);
 }

@@ -16,23 +16,23 @@ public class VideoServiceImpl implements VideoService{
 	VideoDao videoDao;
 	
 	@Override
-	public List<Video> selecList(HashMap<String, String> params) {
+	public List<Video> getListVideo(HashMap<String, String> params) {
 
-		return videoDao.selectList(params);
+		return videoDao.selectListVideo(params);
 	}
 
 	@Override
-	public Video selectOne(String id) {
+	public Video getOneVideo(String id) {
 		// TODO Auto-generated method stub
 		videoDao.viewCntUp(id);
-		return videoDao.selectOne(id);
+		return videoDao.selectOneVideo(id);
 	}
 
-//	@Override
-//	public void videoViewCountUp(String youtubeId) {
-//		// TODO Auto-generated method stub
-//		videoDao.viewCntUp(youtubeId);
-//	}
+	@Override
+	public void viewCountUpVideo(String youtubeId) {
+		// TODO Auto-generated method stub
+		videoDao.viewCntUp(youtubeId);
+	}
 	
 
 }

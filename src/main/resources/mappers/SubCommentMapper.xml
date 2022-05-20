@@ -3,40 +3,40 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafit.model.dao.SubCommentDao">
 	<resultMap type="subComment" id="subCommentMap">
-		<result column="sub_no" property="SubNo"/>
-		<result column="comment_no" property="CommentNo"/>
-		<result column="nick_name" property="NickName"/>
-		<result column="content" property="Content"/>
-		<result column="user_id" property="UserId" />
-		<result column="date" property="Date" />
+		<result column="sub_no" property="subNo"/>
+		<result column="comment_no" property="commentNo"/>
+		<result column="nick_name" property="nickName"/>
+		<result column="content" property="content"/>
+		<result column="user_id" property="userId" />
+		<result column="date" property="date" />
 	</resultMap>
 	
 	<insert id="insertSubComment" parameterType="subComment">
 		INSERT INTO subcomment
 			VALUES
-			(0, #{CommentNo}, #{NickName}, #{Content}, #{UserId}, NOW())
+			(0, #{commentNo}, #{nickName}, #{content}, #{userId}, NOW())
 	</insert>
 
 	<delete id="deleteSubComment" parameterType="int">
 		DELETE FROM subcomment
-			WHERE sub_no = #{SubNo}
+			WHERE sub_no = #{subNo}
 	</delete>
 	
-	<update id="updateComment" parameterType="subComment">
+	<update id="updateSubComment" parameterType="subComment">
 		UPDATE subcomment
 		SET 
-			nick_name = #{NickName},
-			content = #{Content}
-		WHERE sub_no = #{SubNo}	
+			nick_name = #{nickName},
+			content = #{content}
+		WHERE sub_no = #{subNo}	
 	</update>
 	
-	<select id="selectList" parameterType="int" resultMap="subCommentMap">
+	<select id="selectListSubComment" parameterType="int" resultMap="subCommentMap">
 		SELECT * FROM subcomment
-			WHERE comment_no = #{CommentNo}
+			WHERE comment_no = #{commentNo}
 	</select>
 	
-	<select id="selectOne" parameterType="int" resultMap="subCommentMap">
+	<select id="selectOneSubComment" parameterType="int" resultMap="subCommentMap">
 		SELECT * FROM subcomment
-			WHERE sub_no = #{SubNo}		
+			WHERE sub_no = #{subNo}		
 	</select>
 </mapper>

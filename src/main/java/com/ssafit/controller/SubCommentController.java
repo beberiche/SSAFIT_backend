@@ -36,7 +36,7 @@ public class SubCommentController {
 	)
 
 	public ResponseEntity<String> insertComment(@RequestBody SubComment subcomment) {
-			subCommentService.insertSubComment(subcomment);
+			subCommentService.createSubComment(subcomment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -47,7 +47,7 @@ public class SubCommentController {
 			notes = "해당 대댓글 정보를 수정합니다. 댓글과 마찬가지로, 닉네임과 내용만 수정이 가능합니다."
 	)
 	public ResponseEntity<String> updateComment(@RequestBody SubComment comment) {
-		subCommentService.updateSubComment(comment);
+		subCommentService.modifySubComment(comment);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -58,7 +58,7 @@ public class SubCommentController {
 			notes = "해당 대댓글을 삭제합니다."
 	)
 	public ResponseEntity<String> deleteComment(@PathVariable int id) {
-		subCommentService.deleteSubComment(id);
+		subCommentService.removeSubComment(id);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -69,7 +69,7 @@ public class SubCommentController {
 			notes = "해당 댓글의 대댓글 정보 리스트를 반환합니다."
 	)
 	public ResponseEntity<List<SubComment>> readList(@PathVariable int id) {
-		return new ResponseEntity<List<SubComment>>(subCommentService.selectList(id), HttpStatus.OK);
+		return new ResponseEntity<List<SubComment>>(subCommentService.getListSubComment(id), HttpStatus.OK);
 
 	}
 
@@ -80,7 +80,7 @@ public class SubCommentController {
 			notes = "해당 대댓글의 상세 정보를 보여줍니다."
 	)
 	public ResponseEntity<SubComment> readOne(@PathVariable int id) {
-		return new ResponseEntity<SubComment>(subCommentService.selectOne(id), HttpStatus.OK);
+		return new ResponseEntity<SubComment>(subCommentService.getOneSubComment(id), HttpStatus.OK);
 
 	}
 }

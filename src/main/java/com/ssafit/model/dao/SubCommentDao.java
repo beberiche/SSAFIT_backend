@@ -8,12 +8,12 @@ public interface SubCommentDao {
 	// subcomment 작성
 	void insertSubComment(SubComment subComment);
 	// subcomment 삭제
-	boolean deleteSubComment(int SubNo);
+	boolean deleteSubComment(int subNo);
 	// subcomment 수정
 	boolean updateSubComment(SubComment subComment);
 	// subcomment 조회
 	// 전체 조회
-	List<SubComment> selectList(int CommentNo);
-	// 상세 조회
-	SubComment selectOne(int SubNo);
+	List<SubComment> selectListSubComment(int commentNo);
+	// 상세 조회                   selectListSubComment
+	SubComment selectOneSubComment(int subNo);
 }
