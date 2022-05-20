@@ -1,5 +1,6 @@
 package com.ssafit.model.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,11 @@ public class FollowServiceImpl implements FollowService{
 	}
 
 	@Override
-	public boolean removeFollw(int no) {
-		if(followDao.deleteFollow(no))
+	public boolean removeFollw(String userid, String followid) {
+		HashMap<String, String> follow = new HashMap<String , String>();
+		follow.put("userId",userid);
+		follow.put("followId",followid);
+		if(followDao.deleteFollow(follow))
 			return true;
 		return false;
 	}
