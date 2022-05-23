@@ -3,38 +3,41 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafit.model.dao.CommentDao">
 	<resultMap type="comment" id="commentMap">
-		<result column="comment_no" property="commentNo"/>
-		<result column="youtube_id" property="youtubeId"/>
-		<result column="nick_name" property="nickName"/>
-		<result column="content" property="content"/>
+		<result column="comment_no" property="commentNo" />
+		<result column="youtube_id" property="youtubeId" />
+		<result column="nick_name" property="nickName" />
+		<result column="content" property="content" />
 		<result column="user_id" property="userId" />
 		<result column="date" property="date" />
 	</resultMap>
-	
-	<insert id="insertComment" parameterType="comment" >
+
+	<insert id="insertComment" parameterType="comment"
+		useGeneratedKeys="true" keyProperty="commentNo">
 		INSERT INTO comment
-			VALUES
-			(0, #{youtubeId}, #{nickName}, #{content}, #{userId}, NOW())
+		VALUES
+		(0, #{youtubeId}, #{nickName}, #{content}, #{userId}, NOW())
 	</insert>
-	
+
 	<delete id="deleteComment" parameterType="int">
 		DELETE FROM comment
-			WHERE comment_no = #{commentNo}
+		WHERE comment_no = #{commentNo}
 	</delete>
-	
+
 	<update id="updateComment" parameterType="comment">
 		UPDATE comment
-		SET 
-			nick_name = #{nickName},
-			content = #{content}
-		WHERE comment_no = #{commentNo}	
+		SET
+		nick_name = #{nickName},
+		content = #{content}
+		WHERE comment_no = #{commentNo}
 	</update>
-	<select id="selectListComment" parameterType="String" resultMap="commentMap">
+	<select id="selectListComment" parameterType="String"
+		resultMap="commentMap">
 		SELECT * FROM comment
-			WHERE youtube_id = #{youtubeId}
+		WHERE youtube_id = #{youtubeId}
 	</select>
-	<select id="selectOneComment" parameterType="int" resultMap="commentMap">
+	<select id="selectOneComment" parameterType="int"
+		resultMap="commentMap">
 		SELECT * FROM comment
-			WHERE comment_no = #{commentNo}		
+		WHERE comment_no = #{commentNo}
 	</select>
 </mapper>

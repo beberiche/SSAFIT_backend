@@ -11,7 +11,7 @@
 		<result column="date" property="date" />
 	</resultMap>
 	
-	<insert id="insertSubComment" parameterType="subComment">
+	<insert id="insertSubComment" parameterType="subComment"  useGeneratedKeys="true" keyProperty="subNo">
 		INSERT INTO subcomment
 			VALUES
 			(0, #{commentNo}, #{nickName}, #{content}, #{userId}, NOW())

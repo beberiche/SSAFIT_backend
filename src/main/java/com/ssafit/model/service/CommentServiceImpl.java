@@ -17,7 +17,7 @@ public class CommentServiceImpl implements CommentService {
 	@Override
 	public void createComment(Comment comment) {
 		commentDao.insertComment(comment);
-
+		//System.out.println(comment.getDate());
 	}
 
 	@Override

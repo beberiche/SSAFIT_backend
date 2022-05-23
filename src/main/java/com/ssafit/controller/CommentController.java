@@ -35,9 +35,10 @@ public class CommentController {
 			value = "댓글 등록",
 			notes = "해당 비디오에 대한 댓글을 생성합니다."
 	)
-	public ResponseEntity<String> insertComment(@RequestBody Comment comment) {
+	public ResponseEntity<Integer> insertComment(@RequestBody Comment comment) {
 		commentService.createComment(comment);
-		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
+		int id = comment.getCommentNo();
+		return new ResponseEntity<Integer>(id, HttpStatus.OK);
 	}
 
 	// 수정
