@@ -34,7 +34,7 @@ VALUES
 	("hR1ZgDQqyVI",	"비타민신지니",	"복부", "(Sub):fire:볼록 튀어나온 아랫뱃살:fire:무조건 빠지는 역대급 뱃살폭파운동 (똥배/복부지방)",0),
 	("jiHoMmNhVzM",	"이지은 다이어트","복부", "(Sub):diamonds:말랑 출렁이는 뱃살:diamonds:에서 탄력있는 일자복근 만들기",0),
 	("kETh8T3it4k",	"힙으뜸",	"복부", "(Sub)(층간소음X, 설명O) 복근운동과 유산소를 한번에:exclamation:️서서하는 복근운동 1탄:fire:",0),
-	("KXYi6bI-UPEc","권혁 Hulk's TV", "하체", "(Sub)Lv.5 13분만에 하체 마비시키는 루틴! 근육통100% 옵니다. (누구나 집에서 가능) 13mins intense Legs Workout",0),
+	("KXYi6bI-UPE","권혁 Hulk's TV", "하체", "(Sub)Lv.5 13분만에 하체 마비시키는 루틴! 근육통100% 옵니다. (누구나 집에서 가능) 13mins intense Legs Workout",0),
 	("nz5qsvRgK24",	"Hbro 길환TV", "전신", "[전신 운동] 근육은 늘리고 살은 빼는 홈트 (초급자 추천)",0),
 	("PjGcOP-TQPE",	"ThankyouBUBU",	"복부", "11자복근 복부 최고의 운동 [복근 핵매운맛]",0),
 	("QqqZH3j_vH0",	"ThankyouBUBU",	"상체", "상체비만 다이어트 최고의 운동 [상체 핵매운맛]",0),
@@ -98,10 +98,10 @@ VALUES
     (0,13,'추운 엘사', '내일부터 다이어트다', 'galaxy', '2021-03-12 07:11:31'),
     (0,13,'화장하는 사슴', '최고의 운동영상', 'youngSubin', NOW());
 
-DELETE FROM `like`;
-ALTER TABLE `like` AUTO_INCREMENT =1;
+DELETE FROM `likes`;
+ALTER TABLE `likes` AUTO_INCREMENT =1;
 
-INSERT INTO `like`
+INSERT INTO `likes`
 VALUES
 	(0, '7TLk7pscICk',"reo"),
     (0, "2swcod5RYvU","reo"),

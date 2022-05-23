@@ -60,7 +60,7 @@ public class UserController {
 	@PutMapping("/")
 	@ApiOperation(
 			value = "유저 수정",
-			notes = "유저 정보를 업데이트 합니다."
+			notes = "유저의 비밀번호를 업데이트 합니다."
 	)
 	public ResponseEntity<String> updateUser(@RequestBody User user) {
 		userService.modifyUser(user);

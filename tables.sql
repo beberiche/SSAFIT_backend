@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS `user`;
 DROP TABLE IF EXISTS `video`;
 DROP TABLE IF EXISTS `comment`;
 DROP TABLE IF EXISTS `subcomment`;
-DROP TABLE IF EXISTS `like`;
+DROP TABLE IF EXISTS `likes`;
 DROP TABLE IF EXISTS `follow`;
 
 
@@ -58,7 +58,7 @@ CREATE TABLE `subcomment` (
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- LIKE (비디오에 대한 찜)
-CREATE TABLE `like` (
+CREATE TABLE `likes` (
 	`no` int NOT NULL AUTO_INCREMENT,
 	`youtube_id` varchar(200) NOT NULL,
     `user_id` varchar(50) NOT NULL,

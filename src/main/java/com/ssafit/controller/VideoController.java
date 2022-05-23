@@ -39,7 +39,7 @@ public class VideoController {
 			@RequestParam(defaultValue = "") String key) {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("key", key);
-		map.put("content", content);
+		map.put("content", content);;
 		return new ResponseEntity<List<Video>>(videoService.getListVideo(map), HttpStatus.OK);
 
 	}

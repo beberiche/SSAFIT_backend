@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ssafit.model.dto.User;
 import com.ssafit.model.service.UserService;
 import com.ssafit.util.JWTUtill;
+import com.ssafit.util.SHA256;
 
 @RestController
 @RequestMapping("/api/login")

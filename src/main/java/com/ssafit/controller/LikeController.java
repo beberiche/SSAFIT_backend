@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafit.model.dto.Like;
+import com.ssafit.model.dto.Video;
 import com.ssafit.model.service.LikeService;
 
 import io.swagger.annotations.Api;
@@ -39,13 +40,13 @@ public class LikeController {
 
 	}
 
-	@DeleteMapping("/{no}")
+	@DeleteMapping("/")
 	@ApiOperation(
 			value = "찜 삭제",
 			notes = "해당 비디오를 찜목록에서 제거합니다."
 	)
-	public ResponseEntity<String> deleteLike(@PathVariable int no) {
-		likeService.removeLike(no);
+	public ResponseEntity<String> deleteLike(@RequestBody Like like) {
+		likeService.removeLike(like);
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 
@@ -56,5 +57,15 @@ public class LikeController {
 	)
 	public ResponseEntity<List<Like>> listLike(@PathVariable String userId) {
 		return new ResponseEntity<List<Like>>(likeService.getListLike(userId), HttpStatus.OK);
+	}
+	
+	
+	@GetMapping("/videos/{userId}")
+	@ApiOperation(
+			value= "찜에 해당되는 비디오 정보 조회",
+			notes = "찜에 해당되는 정보를 비디오 클래스로 변화시켜 반환합니다."
+	)
+	public ResponseEntity<List<Video>> listLikeVideo(@PathVariable String userId) {
+		return new ResponseEntity<List<Video>>(likeService.getListLikeVideo(userId),HttpStatus.OK);
 	}
 }

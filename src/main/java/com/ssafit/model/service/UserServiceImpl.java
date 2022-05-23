@@ -1,16 +1,20 @@
 package com.ssafit.model.service;
 
+import java.security.NoSuchAlgorithmException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ssafit.model.dao.UserDao;
 import com.ssafit.model.dto.User;
+import com.ssafit.util.SHA256;
 
 @Service
 public class UserServiceImpl implements UserService {
 	
 	@Autowired
 	UserDao userDao;
+
 	@Override
 	public void createUser(User user) {
 		userDao.insertUser(user);
