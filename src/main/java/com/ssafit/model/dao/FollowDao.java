@@ -10,7 +10,7 @@ public interface FollowDao {
 	void insertFollow(Follow follow);
 
 	// Follow 삭제
-	boolean deleteFollow(HashMap<String, String> follow);
+	boolean deleteFollow(Follow follow);
 
 	// Follow 조회
 	List<Follow> selectListFollow(String userId);

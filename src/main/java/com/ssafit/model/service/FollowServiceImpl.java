@@ -21,10 +21,7 @@ public class FollowServiceImpl implements FollowService{
 	}
 
 	@Override
-	public boolean removeFollw(String userid, String followid) {
-		HashMap<String, String> follow = new HashMap<String , String>();
-		follow.put("userId",userid);
-		follow.put("followId",followid);
+	public boolean removeFollw(Follow follow) {
 		if(followDao.deleteFollow(follow))
 			return true;
 		return false;

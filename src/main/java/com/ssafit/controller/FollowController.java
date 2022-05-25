@@ -45,8 +45,9 @@ public class FollowController {
 			notes = "선택한 유저를 더이상 팔로우하지 않습니다."
 	)
 	public ResponseEntity<String> deleteFollow(@PathVariable String userid, @PathVariable String followid) {
+		System.out.println(userid + " " + followid);
 		
-		followService.removeFollw(userid,followid);
+		followService.removeFollw(new Follow(userid, followid));
 		return new ResponseEntity<String>("SUCCESS", HttpStatus.OK);
 	}
 

@@ -9,7 +9,7 @@ public interface FollowService {
 		void createFollow(Follow follow);
 
 		// Follow 삭제
-		boolean removeFollw(String userid, String followid);
+		boolean removeFollw(Follow follow);
 
 		// Follow 조회
 		List<Follow> getListFollow(String userId);
