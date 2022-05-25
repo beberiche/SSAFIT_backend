@@ -28,6 +28,7 @@ public class JWTInterceptor implements HandlerInterceptor {
 		final String token = request.getHeader(HEADER_AUTH);
 		System.out.println("token : " + token);
 		if (token != null) {
+			
 			jwtUtill.valid(token);
 			return true;
 		}
