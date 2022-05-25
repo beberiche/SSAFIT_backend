@@ -17,6 +17,7 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `name` varchar(20) NOT NULL,
   `age` int NOT NULL,
+  `refresh_token` varchar(2000),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

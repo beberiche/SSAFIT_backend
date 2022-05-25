@@ -35,18 +35,22 @@ public class LoginController {
 		try {
 			User u = userService.getUser(user.getId());
 			if (u != null && u.getId().equals(user.getId())  && u.getPassword().equals(user.getPassword()) ) {
-				result.put("auth-token", jwtUtill.createToken("userId", user.getId()));
+				result.put("access-token", jwtUtill.createAccessToken("userId", user.getId()));
 				result.put("message", SUCCESS);
 				result.put("userData", u);
 				status = HttpStatus.ACCEPTED;
+				
 			} else {
 				result.put("message", FAIL);
 				status = HttpStatus.ACCEPTED;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
+			result.put("message", FAIL);
 			status = HttpStatus.INTERNAL_SERVER_ERROR;
 		}
 		return new ResponseEntity<Map<String, Object>>(result, status);
 
 	}
 }
+

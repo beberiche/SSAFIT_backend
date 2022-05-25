@@ -11,4 +11,7 @@ public interface UserService {
 	boolean modifyUser(User user);
 	// 유저 조회
 	User getUser(String id);
+	
+	// 만료된 토큰 재생성
+	void modifyRefreshToken(User user) throws Exception;
 }

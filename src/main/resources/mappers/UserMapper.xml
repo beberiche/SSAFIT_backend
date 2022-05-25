@@ -7,10 +7,10 @@
 		<result column="password" property="password" />
 		<result column="name" property="name" />
 		<result column="age" property="age" />
+		<result column="refreshToken" property="refresh_token"/>
 	</resultMap>
-
 	<insert id="insertUser" parameterType="user">
-		INSERT INTO user
+		INSERT INTO user (id, password, name, age)
 		VALUES
 		(#{id}, #{password}, #{name}, #{age})
 		
@@ -22,8 +22,14 @@
 			age = #{age},
 			password = #{password}
 		WHERE id = #{id}
-		
 	</update>
+	<update id="updateRefreshToken" parameterType="user">
+		UPDATE user
+		SET 
+			refresh_token=#{refreshToken}
+		WHERE id= #{id}
+	</update>
+	
 	<delete id="deleteUser" parameterType="string">
 		DELETE FROM user
 		WHERE id=#{id}
@@ -34,5 +40,5 @@
 		SELECT *
 		FROM user WHERE id=#{id};
 	</select>
-
+ 
 </mapper>

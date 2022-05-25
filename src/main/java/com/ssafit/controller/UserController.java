@@ -15,9 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafit.model.dto.User;
-import com.ssafit.model.service.FollowService;
-import com.ssafit.model.service.LikeService;
 import com.ssafit.model.service.UserService;
+import com.ssafit.util.JWTUtill;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,11 +30,13 @@ public class UserController {
 	private static final String FAIL = "fail";
 	@Autowired
 	UserService userService;
-
-	// 유저등록
+	@Autowired
+	JWTUtill jwtUtill;
+	
+	// 유저가입
 	@PostMapping("/")
 	@ApiOperation(
-			value = "유저 등록",
+			value = "유저 가입",
 			notes = "새로운 유저의 정보를 데이터베이스에 등록합니다."
 	)
 	public ResponseEntity<String> insertUser(@RequestBody User user) {

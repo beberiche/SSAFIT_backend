@@ -15,4 +15,10 @@ public interface UserDao {
 	// 유저 조회
 	User selectUser(String id);
 	
+	// 회원가입시 토큰 생성
+	// insertUser에서 넣어주면 된다.
+	
+	// 만료된 토큰 재생성
+	void updateRefreshToken(User user);
+
 }

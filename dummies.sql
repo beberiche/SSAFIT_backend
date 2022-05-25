@@ -2,7 +2,7 @@
 
 DELETE FROM `user`;
 
-INSERT INTO `user` 
+INSERT INTO `user` (id, password, name, age)
 VALUES 
 	("ssafy", "ssafy","김싸피", 24),
     ("coffee", "coffee", "박커피", 36),
