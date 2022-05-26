@@ -16,6 +16,10 @@ import com.ssafit.model.service.UserService;
 import com.ssafit.util.JWTUtill;
 import com.ssafit.util.SHA256;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
+@Api(tags = "로그인 관련")
 @RestController
 @RequestMapping("/api/login")
 public class LoginController {
@@ -29,6 +33,7 @@ public class LoginController {
 	UserService userService;
 
 	@PostMapping("")
+	@ApiOperation(value = "로그인", notes = "입력된 userid와 password를 DB 정보와 비교하여 로그인합니다.")
 	public ResponseEntity<Map<String, Object>> login(@RequestBody User user) {
 		HttpStatus status = null;
 		HashMap<String, Object> result = new HashMap<String, Object>();
